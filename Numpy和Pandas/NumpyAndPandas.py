@@ -1,5 +1,5 @@
-import numpy as nup
-import pandas as pd
+import numpy as nup #专门用来创建列表的库
+import pandas as pd#数据表格
 nup.array([1,2,3])#创建矩阵
 matrix1 = nup.zeros((2,3,3))#0填充矩阵
 matrix2 = nup.ones((2,2))#1填充矩阵
@@ -49,20 +49,21 @@ series3 = pd.Series(data=[1,2,3],index=['k','j','l'])
 frame1 = pd.DataFrame([['Ann','Steve','Sam'],[90,91,92],['class1','class2','class3']],index=['name','goal','class'],
 columns=['c1','c2','c3'])
 frame2 = pd.DataFrame({'class':['c1','c2','c3'],'goal':[93,94,95]},index=['Ann','Steve','Sam'])
+print(frame2.goal)
 #添加列
-frame2['address'] = ['p1','p2','p3']
+#frame2['address'] = ['p1','p2','p3']
 #删除列
-frame2.pop('class')
-print(frame2)
-print(frame2['goal'])
+#frame2.pop('class')
+#print(frame2)
+#print(frame2['goal'])
 #取值
-print(frame2.loc['Ann','goal'])#取Ann行的goal列
-print(frame2.loc['Ann'])#取一行的信息
+#print(frame2.loc['Ann','goal'])#取Ann行的goal列
+#print(frame2.loc['Ann'])#取一行的信息
 #---------------------------------------------------------------------------------------
 #用pandas读取文件
-csv = pd.read_csv('testData.csv')
-txt = pd.read_csv('testData.txt',sep = ';')
-print(csv)
-print(txt)
-excel = pd.read_excel('testData.xlsx')
-print(excel)
+#csv = pd.read_csv('testData.csv')
+#txt = pd.read_csv('testData.txt',sep = ';')
+#print(csv)
+#print(txt)
+#excel = pd.read_excel('testData.xlsx')
+#print(excel)

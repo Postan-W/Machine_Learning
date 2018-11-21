@@ -74,10 +74,10 @@ for url in urls:
     city.append(company['city']['display'])
     welfare.append(company['welfare'])
 #直接利用列表数据制作词云，免去了中文分词的步骤
-# import word_cloud
-# word_cloud.generate_wordcloud(' '.join(salary))
-# word_cloud.generate_wordcloud(' '.join(experience))
-# word_cloud.generate_wordcloud(' '.join(education))
+ import word_cloud
+ word_cloud.generate_wordcloud(' '.join(salary))
+ word_cloud.generate_wordcloud(' '.join(experience))
+ word_cloud.generate_wordcloud(' '.join(education))
 '''使用pyecharts库对薪水和学历要求进行可视化展示，因为薪水是’3K-11K‘这样的形式，需要
 设定几个区间然后统计范围内的频率，学历的几种类型也要得到器出现的频率，所以下面先对数据进行整理
 '''
@@ -101,19 +101,19 @@ rate.append(rate3)
 rate.append(rate4)
 rate.append(rate5)
 import sys
+#将上层目录路径添加到库搜索路径中
 sys.path.append('..')
 import drawer
-#drawer.draw_bar(['3K-6K','6K-12K','12K-24K','24K-30K','30K-40K'],rate,'智联招聘Java岗位薪资统计','共'+str(len(salary))+'家公司')
+drawer.draw_bar(['3K-6K','6K-12K','12K-24K','24K-30K','30K-40K'],rate,'智联招聘Java岗位薪资统计','共'+str(len(salary))+'家公司')
 drawer.draw_pie(['3K-6K','6K-12K','12K-24K','24K-30K','30K-40K'],rate,'薪资占比玫瑰图')
 
 
 
-#  frame = pd.DataFrame({'公司名称':name_of_company,'公司链接':link_of_company,'公司规模':scale_of_company,'所在城市':city,
-#                       '企业类型':category_of_company,'岗位名称':position,'岗位链接':link_of_job,
-#                       '工作经验':experience,'学历起点':education,'薪水':salary,'工作类型':working_time,
-#                       '福利':welfare})
-# frame.to_excel('智联北京Java岗位招聘信息.xlsx',sheet_name='第1页',header='北京Java岗位招聘信息',na_rep='NULL')
-
+frame = pd.DataFrame({'公司名称':name_of_company,'公司链接':link_of_company,'公司规模':scale_of_company,'所在城市':city,
+                      '企业类型':category_of_company,'岗位名称':position,'岗位链接':link_of_job,
+                      '工作经验':experience,'学历起点':education,'薪水':salary,'工作类型':working_time,
+                      '福利':welfare})
+frame.to_excel('智联北京Java岗位招聘信息.xlsx',sheet_name='第1页',header='北京Java岗位招聘信息',na_rep='NULL')
 
 
 
